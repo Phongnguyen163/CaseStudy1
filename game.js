@@ -1,13 +1,16 @@
 const holes = document.querySelectorAll('.square');
 const timeleft = document.querySelector('#time-left');
 const score = document.getElementById('score');
+
 let lastHole;
 let Dap;
 let result = 0;
 let total = 0;
-let currentTime = 10;
-let speed = 600;
+let currentTime = 15;
+let speed = 800;
 let move;
+let ouch = new Audio("./sound/ouch.mp3");
+let TimeCd = setInterval(countDown, 1000);
 
 function randomHole(){
     const hole = holes[Math.floor(Math.random() * 9)];
@@ -36,6 +39,8 @@ holes.forEach(holes => {
     holes.addEventListener('mousedown', () =>
     {
         if (holes.id === Dap) {
+            ouch.play();
+            ouch.currentTime=0;
             result++;
             total++;
             score.innerHTML = ""+total;
@@ -51,7 +56,7 @@ function countDown() {
         alert('Level up');
         clearInterval(move);
         result = 0;
-        currentTime = 10;
+        currentTime = 15;
         timeleft.textContent = currentTime;
         speed -= 100;
         moveMole();
@@ -60,17 +65,12 @@ function countDown() {
     else if (currentTime === 0) {
         clearInterval(TimeCd);
         clearInterval(move);
-        alert('Game Over! Your final score is: ' + total);
+        alert('Your final score is: ' + total);
         result = 0
-        currentTime = 10;
+        currentTime = 15;
         score.innerHTML = ""+total;
         timeleft.textContent = currentTime;
-        document.getElementById('rs').innerHTML = "<dialog open><button onclick='Reset()'>Reset</button></dialog>"
+        window.location = "gameover.html";
     }
-}
-let TimeCd = setInterval(countDown, 1000);
-
-function Reset () {
-    location.reload()
 }
 

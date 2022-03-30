@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <title>Whack a Mole!</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
 </head>
 
 <body>
-<h2 id="rs"></h2>
-<h2>Your score:</h2>
-<h2 id="score">0</h2>
 
-<h2>Time left:</h2>
-<h2 id="time-left">10</h2>
+<div class="scoretable">
+    <div>Your score:  <span id="score"> 0</span></div>
+    <div>Time left: <span id="time-left"> 15</span></div>
+</div>
 
 <div class="grid">
     <div class="square" id="1">
@@ -51,7 +51,6 @@
     <div class="square" id="9">
         <div class="mole"></div>
     </div>
-
 </div>
 <script src="game.js"></script>
 </body>
