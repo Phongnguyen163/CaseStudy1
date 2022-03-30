@@ -21,7 +21,7 @@ function randomHole(){
     }, time);
 
     if (hole === lastHole){
-        return randomHole(holes);
+        return randomHole();
     }
     lastHole = hole;
 
