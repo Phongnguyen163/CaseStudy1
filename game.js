@@ -1,7 +1,6 @@
 const holes = document.querySelectorAll('.square');
 const timeleft = document.querySelector('#time-left');
 const score = document.getElementById('score');
-const hammer = document.querySelector('.hammer')
 
 let lastHole;
 let Dap;
